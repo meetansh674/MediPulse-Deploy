@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointments - MediPulse Admin</title>
+
+    <link rel="stylesheet" href="css/style.css?v=20261007-final">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body>
+    <div id="appNav"></div>
+
+    <main class="page appointments-page">
+
+
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">ADMINISTRATION</p>
+                <h1>Appointment Administration</h1>
+                <p class="muted">
+                    Review, manage and monitor patient appointments.
+                </p>
+            </div>
+
+            <button class="btn" id="refreshAppointments">
+                <i class="fa-solid fa-rotate"></i>
+                Refresh
+            </button>
+        </div>
+
+
+        <section class="appointment-stats">
+
+            <article class="appointment-stat-card">
+                <div class="appointment-stat-icon blue">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div>
+                    <span>Total Appointments</span>
+                    <strong id="totalAppointments">0</strong>
+                </div>
+            </article>
+
+            <article class="appointment-stat-card">
+                <div class="appointment-stat-icon amber">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <span>Scheduled</span>
+                    <strong id="scheduledAppointments">0</strong>
+                </div>
+            </article>
+
+            <article class="appointment-stat-card">
+                <div class="appointment-stat-icon green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedAppointments">0</strong>
+                </div>
+            </article>
+
+            <article class="appointment-stat-card">
+                <div class="appointment-stat-icon red">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                </div>
+                <div>
+                    <span>Cancelled</span>
+                    <strong id="cancelledAppointments">0</strong>
+                </div>
+            </article>
+
+        </section>
+
+
+        <section class="panel appointments-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h2>
+                        <i class="fa-solid fa-calendar-check"></i>
+                        All Appointments
+                    </h2>
+                    <p class="muted">
+                        Search, filter and manage registered appointments.
+                    </p>
+                </div>
+
+                <span class="count-pill" id="appointmentCount">
+                    0 appointments
+                </span>
+            </div>
+
+
+            <div class="appointment-toolbar">
+
+                <label class="appointment-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                        id="searchAppointment"
+                        class="search"
+                        type="search"
+                        placeholder="Search patient, doctor, reason or ID">
+                </label>
+
+                <label class="appointment-filter">
+                    <span>Status</span>
+                    <select id="statusFilter">
+                        <option value="">All statuses</option>
+                        <option value="SCHEDULED">Scheduled</option>
+                        <option value="COMPLETED">Completed</option>
+                        <option value="CANCELLED">Cancelled</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <div id="appointmentsMessage" class="inline-message"></div>
+
+
+            <div class="table-scroll appointments-table-wrap">
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Date &amp; Time</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="appointmentsBody">
+                        <tr>
+                            <td colspan="7">
+                                <div class="table-loading">
+                                    <i class="fa-solid fa-spinner fa-spin"></i>
+                                    Loading appointments...
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </section>
+
+    </main>
+
+    <div id="modalRoot"></div>
+
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script>
+<script src="js/common.js?v=20261009-final"></script>
+    <script src="js/appointments.js?v=20261009-final"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

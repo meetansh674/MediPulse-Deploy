@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediPulse | Patient Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+    <link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body class="dashboard-body">
+
+
+    <main class="dashboard-main">
+
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="dashboard-small-text">Patient Portal</p>
+
+                <h1>Welcome back, <span id="patientName">Patient</span></h1>
+
+                <p class="dashboard-subtitle">
+                    Here's an overview of your healthcare information.
+                </p>
+            </div>
+
+            <div class="notification-icon">
+                ●
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Health Overview</h2>
+
+                    <p>
+                        Your latest health monitoring information.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="health-cards">
+
+                <div class="dashboard-card health-card">
+
+                    <div class="health-card-top">
+                        <span class="health-label">
+                            Blood Pressure
+                        </span>
+
+                        <span class="health-status" id="healthBPStatus">
+                            No data
+                        </span>
+                    </div>
+
+                    <div class="health-value" id="healthBPValue">
+                        --
+                    </div>
+
+                    <p>Latest reading</p>
+
+                </div>
+
+
+                <div class="dashboard-card health-card">
+
+                    <div class="health-card-top">
+                        <span class="health-label">
+                            Heart Rate
+                        </span>
+
+                        <span class="health-status" id="healthHRStatus">
+                            No data
+                        </span>
+                    </div>
+
+                    <div class="health-value" id="healthHRValue">
+                        --
+                    </div>
+
+                    <p>Latest reading</p>
+
+                </div>
+
+
+                <div class="dashboard-card health-card">
+
+                    <div class="health-card-top">
+                        <span class="health-label">
+                            Blood Glucose
+                        </span>
+
+                        <span class="health-status" id="healthGlucoseStatus">
+                            No data
+                        </span>
+                    </div>
+
+                    <div class="health-value" id="healthGlucoseValue">
+                        --
+                    </div>
+
+                    <p>Latest reading</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-section">
+
+            <h2>Upcoming Appointments</h2>
+
+            <div
+                class="dashboard-card appointment-card"
+                id="upcomingAppointments"
+            >
+
+                <div class="appointment-placeholder">
+
+                    <div class="large-card-icon">
+                        ▣
+                    </div>
+
+                    <div>
+                        <h3>Loading appointments...</h3>
+
+                        <p>
+                            Please wait while we load your appointments.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-section">
+
+            <h2>Alerts & Notifications</h2>
+
+            <div id="alertsOverview">
+
+                <div class="dashboard-card empty-alert-card">
+
+                    <div class="large-card-icon">
+                        ●
+                    </div>
+
+                    <div>
+                        <h3>Loading alerts...</h3>
+
+                        <p>
+                            Please wait while we load your monitoring alerts.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../shared/config.js?v=20261007-final"></script>
+    <script src="../shared/auth.js?v=20261007-final"></script>
+
+    <script src="js/portal.js?v=20261009-final"></script>
+
+    <script src="../assets/toast.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Doctors - MediPulse Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=20261007-final"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+
+<body>
+
+<div id="appNav"></div>
+
+
+<main class="page doctor-page">
+
+
+    <div class="page-heading doctor-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                ADMINISTRATION
+            </p>
+
+            <h1>
+                Doctor Management
+            </h1>
+
+            <p class="muted">
+                Create, view, edit and manage registered doctors.
+            </p>
+
+        </div>
+
+
+        <div class="doctor-heading-actions">
+
+            <div class="doctor-count-card">
+
+                <div class="doctor-count-icon">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Registered Doctors
+                    </span>
+
+                    <strong id="doctorCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="addDoctorBtn"
+                type="button"
+            >
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Add Doctor
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <section class="panel doctor-search-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Find a Doctor
+
+                </h2>
+
+                <p class="muted">
+
+                    Search by name, email,
+                    specialization or department.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="doctor-search-row">
+
+            <div class="doctor-search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchDoctor"
+                    type="search"
+                    placeholder="Search doctors..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="clearSearch"
+                type="button"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="doctorSearchInfo"
+            class="doctor-search-info"
+        >
+
+            Showing all registered doctors
+
+        </div>
+
+
+        <div
+            id="doctorsMessage"
+            class="inline-message"
+        ></div>
+
+    </section>
+
+
+    <section class="panel doctor-list-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    Doctors
+
+                </h2>
+
+                <p class="muted">
+
+                    Registered medical professionals.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="doctor-grid"
+            id="doctorList"
+        >
+
+            <div class="loading-card">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Loading doctors...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<div id="modalRoot"></div>
+
+
+<script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script>
+<script src="js/common.js?v=20261009-final"></script>
+
+<script src="js/doctors.js"></script>
+
+
+<script src="../assets/toast.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        if (typeof setNav === "function") {
+            setNav("doctors");
+        }
+
+});
+</script>
+</body>
+</html>

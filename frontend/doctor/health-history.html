@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Health History</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="health">
+    <div id="appShell"></div>
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor / Medical</p>
+                <h1>Health History & Trends</h1>
+                <p class="muted">Review health readings and monitoring alerts for an authorized patient.</p>
+            </div>
+            <button class="secondary-button" id="refreshPage">Refresh</button>
+        </div>
+        <div id="pageMessage" class="page-message"></div>
+
+<section class="panel">
+    <div class="form-row">
+        <div class="field"><label for="healthPatient">Authorized Patient</label><select id="healthPatient" class="select-input"></select></div>
+        <button class="secondary-button align-end" id="loadHealth">Load Health Data</button>
+    </div>
+</section>
+
+<section class="panel">
+    <div class="panel-header"><div><h2>Add Health Reading</h2><p class="muted">Record a reading for the selected authorized patient.</p></div></div>
+    <form id="healthReadingForm" class="form-grid">
+        <div class="field"><label for="doctorReadingType">Reading Type</label><select id="doctorReadingType" class="select-input" required><option value="HEART_RATE">Heart Rate</option><option value="SPO2">SpO2</option><option value="TEMPERATURE">Temperature</option><option value="SYSTOLIC_BP">Systolic BP</option><option value="DIASTOLIC_BP">Diastolic BP</option><option value="BLOOD_GLUCOSE">Blood Glucose</option></select></div>
+        <div class="field"><label for="doctorReadingValue">Value</label><input id="doctorReadingValue" class="select-input" required type="number" step="any"></div>
+        <div class="field"><label for="doctorReadingUnit">Unit</label><input id="doctorReadingUnit" class="select-input" placeholder="bpm, %, °C, mmHg"></div>
+        <div class="field"><label for="doctorReadingDate">Recorded At</label><input id="doctorReadingDate" class="select-input" type="datetime-local" required></div>
+        <button class="primary-button" type="submit">Add Reading</button>
+    </form>
+    <div id="rangeReference"></div>
+</section>
+
+<section class="stats-grid compact">
+    <article class="stat-card"><span class="stat-label">Readings</span><strong id="healthReadingCount">0</strong><span class="stat-note">For selected patient</span></article>
+    <article class="stat-card"><span class="stat-label">Alerts</span><strong id="healthAlertCount">0</strong><span class="stat-note">Monitoring flags</span></article>
+    <article class="stat-card"><span class="stat-label">Latest Reading</span><strong id="latestReading">-</strong><span class="stat-note" id="latestReadingDate">-</span></article>
+</section>
+
+<section class="content-grid two-columns">
+    <article class="panel">
+        <div class="panel-header"><div><h2>Health Readings</h2></div></div>
+        <div id="healthReadingsList" class="stack-list"><div class="empty-state">Select a patient.</div></div>
+    </article>
+    <article class="panel">
+        <div class="panel-header"><div><h2>Monitoring Alerts</h2><p class="muted">Alerts are project monitoring flags, not diagnoses.</p></div></div>
+        <div id="alertsList" class="stack-list"><div class="empty-state">Select a patient.</div></div>
+    </article>
+</section>
+    </main>
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="../shared/reference-ranges.js?v=20261009-final"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

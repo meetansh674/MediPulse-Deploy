@@ -1,0 +1,6 @@
+package com.medipulse.backend;
+import com.medipulse.backend.controller.AuthController;import com.medipulse.backend.dto.LoginRequest;import com.medipulse.backend.entity.User;import com.medipulse.backend.service.JwtService;import com.medipulse.backend.service.LoginRateLimiter;import com.medipulse.backend.service.UserService;import jakarta.servlet.http.HttpServletRequest;import org.junit.jupiter.api.Test;import java.util.Optional;import static org.junit.jupiter.api.Assertions.*;import static org.mockito.Mockito.*;
+class AuthControllerTest{
+    @Test void loginRejectsInvalidCredentials(){UserService users=mock(UserService.class);JwtService jwt=mock(JwtService.class);LoginRateLimiter limiter=new LoginRateLimiter();AuthController controller=new AuthController(users,jwt,limiter);when(users.login("x@example.com","bad")).thenReturn(Optional.empty());LoginRequest request=new LoginRequest();request.setEmail("x@example.com");request.setPassword("bad");HttpServletRequest http=mock(HttpServletRequest.class);when(http.getRemoteAddr()).thenReturn("127.0.0.1");assertThrows(RuntimeException.class,()->controller.login(request,http));verifyNoInteractions(jwt);}
+    @Test void roleNamesRemainStable(){assertEquals(User.Role.PATIENT.name(),"PATIENT");assertEquals(User.Role.DOCTOR.name(),"DOCTOR");assertEquals(User.Role.ADMIN.name(),"ADMIN");}
+}

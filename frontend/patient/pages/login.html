@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MediPulse | Patient Login</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link
+        rel="icon"
+        type="image/png"
+        href="../../assets/medipulse-logo.png"
+    >
+    <link
+        rel="stylesheet"
+        href="../../assets/auth-theme.css?v=20261009-final"
+    >
+</head>
+
+<body class="auth-unified">
+
+
+    <a
+        href="../../index.html"
+        class="hub-back-button"
+    >
+        ← Back to MediPulse Hub
+    </a>
+
+
+    <main class="auth-page">
+
+        <section class="auth-card">
+
+
+            <div class="brand">
+
+                <img
+                    class="mp-logo"
+                    src="../../assets/medipulse-logo.png"
+                    alt="MediPulse logo"
+                >
+
+                <div>
+                    <h1>MediPulse</h1>
+                    <p>Healthcare Management System</p>
+                </div>
+
+            </div>
+
+
+            <div class="auth-heading">
+
+                <h2>Patient Portal</h2>
+
+                <p>
+                    Sign in to access your personal healthcare information.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="username"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <small
+                        class="field-error"
+                        id="emailError"
+                    ></small>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-wrap">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            autocomplete="current-password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                            title="Show password"
+                        >
+                            <span aria-hidden="true">◉</span>
+                        </button>
+
+                    </div>
+
+                    <small
+                        class="field-error"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+                <div class="form-options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a
+                        href="#"
+                        class="forgot-password"
+                        id="forgotPassword"
+                    >
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="loginButton"
+                >
+                    Sign in
+                </button>
+
+
+                <p
+                    id="loginMessage"
+                    class="form-message"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+
+            <form
+                id="forgotForm"
+                hidden
+            >
+
+                <div class="auth-heading">
+
+                    <h2>Reset your password</h2>
+
+                    <p>
+                        Answer your security question to set a new password.
+                    </p>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="forgotEmail">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="forgotEmail"
+                        autocomplete="username"
+                        placeholder="Enter your registered email"
+                        required
+                    >
+
+                    <small
+                        class="field-error"
+                        id="forgotEmailError"
+                    ></small>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="loadQuestionButton"
+                >
+                    Load security question
+                </button>
+
+
+                <div id="forgotStep2" hidden>
+
+                    <div class="form-group forgot-question">
+
+                        <label>Security question</label>
+
+                        <p id="forgotQuestion"></p>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="forgotAnswer">
+                            Security answer
+                        </label>
+
+                        <input
+                            type="text"
+                            id="forgotAnswer"
+                            autocomplete="off"
+                            placeholder="Enter your answer"
+                        >
+
+                        <small
+                            class="field-error"
+                            id="forgotAnswerError"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="forgotNewPassword">
+                            New password
+                        </label>
+
+                        <small class="password-rule">
+                            Use at least 8 characters and include at least one special character.
+                        </small>
+
+                        <input
+                            type="password"
+                            id="forgotNewPassword"
+                            autocomplete="new-password"
+                            placeholder="Enter new password"
+                        >
+
+                        <small
+                            class="field-error"
+                            id="forgotNewPasswordError"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="forgotConfirmPassword">
+                            Confirm new password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="forgotConfirmPassword"
+                            autocomplete="new-password"
+                            placeholder="Re-enter new password"
+                        >
+
+                        <small
+                            class="field-error"
+                            id="forgotConfirmPasswordError"
+                        ></small>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="resetButton"
+                >
+                    Reset password
+                </button>
+
+
+                <p
+                    id="forgotMessage"
+                    class="form-message"
+                    aria-live="polite"
+                ></p>
+
+
+                <p class="forgot-back">
+
+                    <a
+                        href="#"
+                        id="backToLogin"
+                    >
+                        ← Back to sign in
+                    </a>
+
+                </p>
+
+            </form>
+
+            <div class="auth-footer">
+
+                <span>Don't have an account?</span>
+
+                <a href="register.html">
+                    Create an account
+                </a>
+
+            </div>
+
+
+            <p class="mp-role-switch">
+
+                Doctor or staff?
+
+                <a href="../../doctor/index.html">
+                    Go to the Doctor Portal
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="../../shared/config.js?v=20261007-final"></script>
+    <script src="../../shared/auth.js?v=20261007-final"></script>
+    <script src="../js/app.js?v=20261009-final"></script>
+
+</body>
+
+</html>

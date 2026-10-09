@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Lab Reports - MediPulse Admin
+  </title>
+  <link href="css/style.css?v=20261007-final" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="../assets/portal-theme.css?v=20261007-final" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="appNav">
+  </div>
+  <main class="page">
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      MONITORING
+     </p>
+     <h1>
+      Lab Reports
+     </h1>
+     <p class="muted">
+      Review patient lab reports and open attached PDF files.
+     </p>
+    </div>
+   </div>
+   <section class="panel">
+    <div class="toolbar">
+     <label class="field-inline">
+      Patient
+      <select id="labPatientSelect">
+       <option value="">
+        Loading patients...
+       </option>
+      </select>
+     </label>
+     <button class="btn" id="refreshLabs">
+      <i class="fa-solid fa-rotate"></i>
+      Refresh
+     </button>
+    </div>
+    <div class="patient-summary" id="labPatientInfo">
+     Select a patient.
+    </div>
+   </section>
+   <section class="panel">
+    <div class="panel-header">
+     <div>
+      <h2>
+       <i class="fa-solid fa-flask"></i>
+       Reports
+      </h2>
+      <p class="muted">
+       Attached files open inline below the table.
+      </p>
+     </div>
+     <span class="count-pill" id="labCount">
+      0 reports
+     </span>
+    </div>
+    <div class="table-scroll">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Test
+        </th>
+        <th>
+         Result
+        </th>
+        <th>
+         Created By
+        </th>
+        <th>
+         Report Date
+        </th>
+        <th>
+         File
+        </th>
+       </tr>
+      </thead>
+      <tbody id="labBody">
+       <tr>
+        <td colspan="5">
+         Select a patient to load lab reports.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div id="labPreview" style="margin-top: 12px;"></div>
+   </section>
+  </main>
+  <script src="../shared/config.js?v=20261007-final">
+  </script>
+  <script src="../shared/auth.js?v=20261007-final">
+  </script>
+  <script src="js/common.js">
+  </script>
+  <script src="js/lab-reports.js">
+  </script>
+  <script src="../assets/toast.js">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Authorized Patients</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="patients">
+    <div id="appShell"></div>
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor / Medical</p>
+                <h1>Authorized Patients</h1>
+                <p class="muted">Patients are discovered from appointments assigned to your doctor account.</p>
+            </div>
+            <button class="secondary-button" id="refreshPage">Refresh</button>
+        </div>
+        <div id="pageMessage" class="page-message"></div>
+
+<section class="panel">
+    <div class="toolbar">
+        <input id="patientSearch" class="search-input" type="search" placeholder="Search patient by name or ID">
+        <span class="muted" id="patientCount">0 patients</span>
+    </div>
+    <div id="patientsList" class="card-list"><div class="empty-state">Loading patients...</div></div>
+</section>
+
+<section class="panel hidden" id="patientDetailsPanel">
+    <div class="panel-header">
+        <div>
+            <h2 id="patientDetailsTitle">Patient Details</h2>
+            <p class="muted">Only data returned for this authorized patient is shown.</p>
+        </div>
+        <button class="secondary-button" id="closePatientDetails">Close</button>
+    </div>
+    <div id="patientDetails" class="profile-grid"></div>
+    <div class="patient-actions">
+        <button class="primary-button small" data-action="records">Medical Records</button>
+        <button class="primary-button small" data-action="prescriptions">Prescriptions</button>
+        <button class="primary-button small" data-action="labs">Lab Reports</button>
+        <button class="primary-button small" data-action="health">Health History</button>
+    </div>
+</section>
+    </main>
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

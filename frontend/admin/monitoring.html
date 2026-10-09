@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Monitoring - MediPulse Admin
+  </title>
+  <link href="css/style.css?v=20261007-final" rel="stylesheet"/>
+  <link href="../assets/portal-theme.css?v=20261007-final" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="appNav">
+  </div>
+  <main class="page">
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      MONITORING
+     </p>
+     <h1>
+      Health Monitoring
+     </h1>
+     <p class="muted">
+      Patient health history, manual readings and trend visualization.
+     </p>
+    </div>
+   </div>
+   <section class="panel">
+    <div class="toolbar">
+     <label class="field-inline">
+      Patient
+      <select id="patientSelect">
+       <option value="">
+        Loading patients...
+       </option>
+      </select>
+     </label>
+     <button class="btn" id="refreshMonitoring">
+      Refresh
+     </button>
+    </div>
+    <div class="patient-summary" id="patientInfo">
+     Select a patient.
+    </div>
+   </section>
+   <section class="panel">
+    <div class="panel-header">
+     <div>
+      <h2>
+       Add Health Reading
+      </h2>
+      <p class="muted">
+       Record a health reading for the selected patient.
+      </p>
+     </div>
+    </div>
+    <form class="form-grid" id="readingForm">
+     <label>
+      Reading type
+      <select id="readingType" required="">
+       <option value="HEART_RATE">
+        Heart Rate
+       </option>
+       <option value="SPO2">
+        SpO2
+       </option>
+       <option value="TEMPERATURE">
+        Temperature
+       </option>
+       <option value="SYSTOLIC_BP">
+        Systolic BP
+       </option>
+       <option value="DIASTOLIC_BP">
+        Diastolic BP
+       </option>
+       <option value="BLOOD_GLUCOSE">
+        Blood Glucose
+       </option>
+      </select>
+     </label>
+     <label>
+      Value
+      <input id="readingValue" placeholder="e.g. 78" required=""/>
+     </label>
+     <label>
+      Unit
+      <input id="readingUnit" placeholder="e.g. bpm"/>
+     </label>
+     <label>
+      Recorded at
+      <input id="recordedAt" required="" type="datetime-local"/>
+     </label>
+     <div class="form-actions">
+      <button class="btn primary" type="submit">
+       Save Reading
+      </button>
+     </div>
+    </form>
+    <div class="inline-message" id="readingMessage">
+    </div>
+    <div id="rangeReference"></div>
+   </section>
+   <section class="panel">
+    <div class="panel-header">
+     <div>
+      <h2>
+       Health History
+      </h2>
+     </div>
+     <span class="count-pill" id="readingCount">
+      0 readings
+     </span>
+    </div>
+    <div class="table-scroll">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Type
+        </th>
+        <th>
+         Value
+        </th>
+        <th>
+         Unit
+        </th>
+        <th>
+         Recorded At
+        </th>
+       </tr>
+      </thead>
+      <tbody id="readingsBody">
+       <tr>
+        <td colspan="4">
+         Select a patient.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="panel">
+    <div class="panel-header">
+     <div>
+      <h2>
+       Health Trend
+      </h2>
+      <p class="muted">
+       Numeric readings can be plotted by reading type.
+      </p>
+     </div>
+     <select id="chartType">
+      <option value="">
+       Select metric
+      </option>
+     </select>
+    </div>
+    <div class="chart-wrap">
+     <canvas id="healthChart">
+     </canvas>
+    </div>
+    <p class="muted center" id="chartMessage">
+     Select a patient and metric.
+    </p>
+   </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  </script>
+  <script src="../shared/config.js?v=20261007-final">
+  </script>
+  <script src="../shared/auth.js?v=20261007-final">
+  </script>
+  <script src="../shared/reference-ranges.js?v=20261009-final">
+  </script>
+  <script src="js/common.js?v=20261009-final">
+  </script>
+  <script src="js/monitoring.js?v=20261009-final">
+  </script>
+  <script src="../assets/toast.js">
+  </script>
+ </body>
+</html>

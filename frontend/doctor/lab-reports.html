@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Lab Reports</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="labs">
+    <div id="appShell"></div>
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor / Medical</p>
+                <h1>Lab Reports</h1>
+                <p class="muted">Review authorized patient lab reports and add report metadata.</p>
+            </div>
+            <button class="secondary-button" id="refreshPage">Refresh</button>
+        </div>
+        <div id="pageMessage" class="page-message"></div>
+
+<section class="panel">
+    <div class="form-row">
+        <div class="field"><label for="labPatient">Authorized Patient</label><select id="labPatient" class="select-input"></select></div>
+        <button class="secondary-button align-end" id="loadLabs">Load Reports</button>
+    </div>
+</section>
+
+<section class="content-grid two-columns">
+    <article class="panel">
+        <div class="panel-header"><div><h2>Add Lab Report</h2></div></div>
+        <form id="labForm" class="form-grid">
+            <div class="field full"><label for="testName">Test Name</label><input id="testName" required></div>
+            <div class="field full"><label for="labResult">Result</label><textarea id="labResult" rows="4" required></textarea></div>
+            <div class="field"><label for="reportDate">Report Date & Time</label><input id="reportDate" type="datetime-local" required></div>
+            <div class="field"><label for="labFile">Upload Report File (optional, PDF/JPG/PNG, max 10MB)</label><input id="labFile" type="file" accept=".pdf,.jpg,.jpeg,.png"><small class="muted" id="labFileStatus"></small></div>
+            <button class="primary-button" type="submit">Add Report</button>
+        </form>
+    </article>
+    <article class="panel">
+        <div class="panel-header"><div><h2>Lab Report History</h2><p class="muted">Selected patient's reports.</p></div></div>
+        <div id="labsList" class="stack-list"><div class="empty-state">Select a patient.</div></div>
+    </article>
+</section>
+    </main>
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

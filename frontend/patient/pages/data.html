@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+    <link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body>
+<main class="container">
+
+    <h1 id="pageTitle">MediPulse</h1>
+
+
+    <section id="healthFormSection" style="display:none; margin-bottom:30px;">
+
+        <h2>Add Health Reading</h2>
+
+        <form id="healthForm">
+
+            <label for="readingType">Reading Type</label>
+            <select id="readingType" required><option value="">Select reading</option><option value="HEART_RATE">Heart Rate</option><option value="SPO2">SpO2</option><option value="TEMPERATURE">Temperature</option><option value="SYSTOLIC_BP">Systolic BP</option><option value="DIASTOLIC_BP">Diastolic BP</option><option value="BLOOD_GLUCOSE">Blood Glucose</option></select>
+
+            <br><br>
+
+            <label for="readingValue">Value</label>
+            <input
+                type="text"
+                id="readingValue"
+                placeholder="Example: 72"
+                required
+            >
+
+            <br><br>
+
+            <label for="readingUnit">Unit</label>
+            <input
+                type="text"
+                id="readingUnit"
+                placeholder="Example: bpm, mmHg, kg"
+                required
+            >
+
+            <br><br>
+
+            <label for="recordedAt">Date and Time</label>
+            <input
+                type="datetime-local"
+                id="recordedAt"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">Add Health Reading</button>
+
+        </form>
+
+        <p id="healthMessage"></p>
+
+        <div id="rangeReference"></div>
+
+    </section>
+
+
+    <section>
+        <div class="data-toolbar"><input id="recordSearch" type="search" placeholder="Search records..." aria-label="Search records"></div>
+        <h2 id="historyTitle">Records</h2>
+
+        <p id="message">Loading...</p>
+
+        <div id="healthChartWrap" style="display:none;height:300px"><canvas id="healthChart"></canvas></div><div id="dataContainer"></div>
+    </section>
+
+    <br>
+
+    <a href="../index.html">← Back to Dashboard</a>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../../shared/config.js?v=20261007-final"></script><script src="../../shared/auth.js?v=20261007-final"></script>
+<script src="../../shared/reference-ranges.js?v=20261009-final"></script>
+<script src="../js/data.js?v=20261009-final"></script>
+
+<script src="../js/portal.js?v=20261009-final"></script>
+<script src="../../assets/toast.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | MediPulse</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .profile-wrapper {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 650px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-icon {
+            width: 85px;
+            height: 85px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            background: #e8f0ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 40px;
+        }
+
+        .profile-header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .profile-header p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        #profileMessage {
+            text-align: center;
+
+            color: #6b7280;
+
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            display: grid;
+            gap: 15px;
+        }
+
+        .profile-item {
+            padding: 18px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        .profile-label {
+            display: block;
+
+            font-size: 13px;
+
+            color: #6b7280;
+
+            margin-bottom: 5px;
+        }
+
+        .profile-value {
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: #111827;
+        }
+
+        .buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+
+            padding: 13px 18px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+        .back-btn {
+            background: #eef2f7;
+
+            color: #374151;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 600px) {
+
+            .profile-card {
+                padding: 25px 20px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+        }
+        /* ==========================================
+           PROFILE PAGE FINAL OVERRIDES
+           ========================================== */
+
+        .profile-edit-panel {
+            margin-top: 24px !important;
+        }
+
+        .profile-edit-panel h2 {
+            margin: 20px 0 12px !important;
+            color: #12365c !important;
+        }
+
+        .profile-edit-form {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+        }
+
+        .profile-edit-form input {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .profile-edit-form button {
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .profile-wrapper .card-button {
+            display: inline-block !important;
+            width: auto !important;
+            margin-top: 24px !important;
+            padding: 12px 18px !important;
+
+            background: #eef2f7 !important;
+            color: #35e0c5 !important;
+
+            border: none !important;
+            border-radius: 10px !important;
+
+            text-decoration: none !important;
+            font-size: 15px !important;
+            font-weight: 600 !important;
+
+            box-shadow: none !important;
+        }
+
+        .profile-wrapper .card-button:hover {
+            background: #e6edf5 !important;
+            color: #35e0c5 !important;
+        }
+
+    </style>
+
+     <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+     <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+     <link rel="stylesheet" href="../css/style.css">
+     <link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+    <style>.profile-wrapper{background:#eef6ff!important;justify-content:flex-start!important;align-items:flex-start!important;padding:42px 30px!important}.profile-card{max-width:760px!important;background:#fff!important;border:1px solid #d8e4f0!important;box-shadow:0 10px 30px rgba(30,80,130,.08)!important}.profile-icon{background:#e8f2ff!important}.profile-label{color:#5f7187!important}.profile-value{color:#172033!important}.profile-edit-panel{margin-top:24px}.profile-edit-panel h2{margin:20px 0 10px;color:#12365c}.profile-edit-form{display:grid;gap:10px}.profile-edit-form input{padding:11px 13px;border:1px solid #bfd0e0;border-radius:9px;color:#172033;background:#fff}.profile-edit-form button{padding:11px;border:0;border-radius:9px}.buttons{display:none!important}@media(max-width:900px){.profile-wrapper{padding:25px!important}}</style>
+    <link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+
+<body>
+
+    <div class="profile-wrapper">
+
+        <div class="profile-card">
+
+
+            <div class="profile-header">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <h1>
+                    My Profile
+                </h1>
+
+                <p>
+                    View your registered patient information
+                </p>
+
+            </div>
+
+
+            <p id="profileMessage">
+                Loading your profile...
+            </p>
+
+
+            <section
+                id="profileDetails"
+                class="profile-details"
+                hidden
+            >
+
+                <div class="profile-item">
+
+                    <span class="profile-label">
+                        Full Name
+                    </span>
+
+                    <span
+                        class="profile-value"
+                        id="profileName"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span class="profile-label">
+                        Email Address
+                    </span>
+
+                    <span
+                        class="profile-value"
+                        id="profileEmail"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span class="profile-label">
+                        Phone Number
+                    </span>
+
+                    <span
+                        class="profile-value"
+                        id="profilePhone"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="profile-item">
+
+                    <span class="profile-label">
+                        Account Role
+                    </span>
+
+                    <span
+                        class="profile-value"
+                        id="profileRole"
+                    >
+                        PATIENT
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <section class="profile-edit-panel">
+                <h2>Edit Profile</h2>
+                <form id="profileEditForm" class="profile-edit-form">
+                    <input id="editName" required placeholder="Full name">
+                    <input id="editEmail" type="email" required placeholder="Email">
+                    <input id="editPhone" placeholder="Phone">
+                    <button class="primary-button" type="submit">Save Profile</button>
+                </form>
+                <h2>Change Password</h2>
+                <form id="passwordForm" class="profile-edit-form">
+                    <input id="currentPassword" type="password" required placeholder="Current password">
+                    <input id="newPassword" type="password" minlength="8" required placeholder="New password (8+ chars and special character)">
+                    <button class="primary-button" type="submit">Change Password</button>
+                </form>
+            </section>
+
+            <a href="../index.html" class="card-button">
+                ← Back to Dashboard
+            </a>
+
+         </div>
+
+    </div>
+
+
+    <script src="../../shared/config.js?v=20261007-final"></script><script src="../../shared/auth.js?v=20261007-final"></script>
+    <script src="../js/profile.js"></script>
+
+    <script src="../js/portal.js?v=20261009-final"></script>
+    <script src="../../assets/toast.js"></script>
+</body>
+
+</html>

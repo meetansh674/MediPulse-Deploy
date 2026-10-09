@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Doctor Dashboard</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="dashboard">
+    <div id="appShell"></div>
+
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor Portal</p>
+                <h1>Dashboard</h1>
+                <p class="muted" id="welcomeMessage">Loading your dashboard...</p>
+            </div>
+            <button class="secondary-button" id="refreshDashboard">Refresh</button>
+        </div>
+
+        <div id="pageMessage" class="page-message"></div>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span class="stat-label">Authorized Patients</span>
+                <strong id="statPatients">0</strong>
+                <span class="stat-note">Patients linked through appointments</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Appointments</span>
+                <strong id="statAppointments">0</strong>
+                <span class="stat-note">Visible to this doctor</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Scheduled</span>
+                <strong id="statScheduled">0</strong>
+                <span class="stat-note">Upcoming / active appointments</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Completed</span>
+                <strong id="statCompleted">0</strong>
+                <span class="stat-note">Completed consultations</span>
+            </article>
+        </section>
+
+        <section class="content-grid two-columns">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Doctor Profile</h2>
+                        <p class="muted">Information from the current doctor account.</p>
+                    </div>
+                </div>
+                <div class="profile-grid">
+                    <div class="info-item"><span>Name</span><strong id="profileName">-</strong></div>
+                    <div class="info-item"><span>Email</span><strong id="profileEmail">-</strong></div>
+                    <div class="info-item"><span>Phone</span><strong id="profilePhone">-</strong></div>
+                    <div class="info-item"><span>Specialization</span><strong id="profileSpecialization">-</strong></div>
+                    <div class="info-item"><span>Department</span><strong id="profileDepartment">-</strong></div>
+                    <div class="info-item"><span>Role</span><strong id="profileRole">-</strong></div>
+                    <div class="info-item"><span>User ID</span><strong id="profileUserId">-</strong></div>
+                    <div class="info-item"><span>Account Created</span><strong id="profileCreatedAt">-</strong></div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Upcoming Appointments</h2>
+                        <p class="muted">Your next scheduled consultations.</p>
+                    </div>
+                    <a class="text-link" href="appointments.html">View all</a>
+                </div>
+                <div id="upcomingAppointments" class="stack-list">
+                    <div class="empty-state">Loading appointments...</div>
+                </div>
+            </article>
+        </section>
+</main>
+
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

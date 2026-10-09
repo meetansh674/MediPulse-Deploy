@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MediPulse Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=20261008-admin"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../assets/portal-theme.css?v=20261008-admin"
+    >
+
+</head>
+
+
+<body data-active="dashboard">
+
+
+<div id="appNav"></div>
+
+
+<main class="page">
+
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                ADMINISTRATION
+            </p>
+
+            <h1>
+                Dashboard
+            </h1>
+
+            <p class="muted">
+                System statistics and monitoring overview.
+            </p>
+
+        </div>
+
+
+        <button
+            class="btn"
+            id="refreshBtn"
+            type="button"
+        >
+            Refresh
+        </button>
+
+    </div>
+
+
+    <section
+        class="stats-grid"
+        id="statsGrid"
+    >
+
+        <div class="loading-card">
+
+            Loading statistics...
+
+        </div>
+
+    </section>
+
+
+    <section class="overview-grid">
+
+
+        <div class="overview-card">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Records
+                </span>
+
+                <strong id="totalRecords">
+                    0
+                </strong>
+
+                <p>
+                    Across MediPulse
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <div class="overview-icon monitoring-icon">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Monitoring
+                </span>
+
+                <strong id="monitoringStatus">
+                    Checking...
+                </strong>
+
+                <p>
+                    Health data status
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <div class="overview-icon alert-icon">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Alerts
+                </span>
+
+                <strong id="alertStatus">
+                    Checking...
+                </strong>
+
+                <p id="alertDescription">
+                    Monitoring alert status
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    System Analytics
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-wrap">
+
+            <canvas
+                id="analyticsChart"
+            ></canvas>
+
+        </div>
+
+    </section>
+
+
+    <section class="alert-center-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-shield-heart"></i>
+
+                    Alert Center
+
+                </h2>
+
+                <p class="muted">
+                    Current monitoring alert status.
+                </p>
+
+            </div>
+
+
+            <a
+                href="alerts.html"
+                class="btn"
+            >
+                View Alerts →
+            </a>
+
+        </div>
+
+
+        <div
+            id="dashboardAlertCenter"
+            class="dashboard-alert"
+        >
+
+            <div class="alert-loading">
+                Checking alert status...
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script
+    src="../shared/config.js?v=20261008-admin"
+></script>
+
+
+<script
+    src="../shared/auth.js?v=20261008-admin"
+></script>
+
+
+<script
+    src="js/common.js?v=20261009-final"
+></script>
+
+
+<script
+    src="js/dashboard.js?v=20261008-dashboard"
+></script>
+
+
+<script
+    src="../assets/toast.js?v=20261008-admin"
+></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        if (typeof setNav === "function") {
+
+            setNav("dashboard");
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

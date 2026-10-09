@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Appointments</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="appointments">
+    <div id="appShell"></div>
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor / Medical</p>
+                <h1>Appointment Management</h1>
+                <p class="muted">Review appointments visible to your doctor account and update their status.</p>
+            </div>
+            <button class="secondary-button" id="refreshPage">Refresh</button>
+        </div>
+        <div id="pageMessage" class="page-message"></div>
+
+<section class="panel">
+    <div class="toolbar">
+        <select id="appointmentFilter" class="select-input">
+            <option value="ALL">All statuses</option>
+            <option value="SCHEDULED">Scheduled</option>
+            <option value="COMPLETED">Completed</option>
+            <option value="CANCELLED">Cancelled</option>
+        </select>
+        <input id="appointmentSearch" class="search-input" type="search" placeholder="Search patient or reason">
+        <span class="muted" id="appointmentCount">0 appointments</span>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th><th>Date & Time</th><th>Reason</th><th>Status</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="appointmentsTableBody"></tbody>
+        </table>
+    </div>
+</section>
+    </main>
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

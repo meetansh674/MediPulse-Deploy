@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescriptions | MediPulse</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body class="dashboard-body">
+
+    <main class="dashboard-main">
+        <section class="dashboard-section">
+            <h1>Prescriptions</h1>
+            <p>View your prescriptions and medication details.</p>
+
+            <div class="dashboard-card">
+                <h3>Your Prescriptions</h3>
+             <div id="prescriptionList">
+                  Loading prescriptions...
+             </div>
+            </div>
+
+            <a href="../index.html" class="card-button">
+                Back to Dashboard
+            </a>
+        </section>
+    </main>
+    <script>
+async function loadPrescriptions() {
+    const list = document.getElementById("prescriptionList");
+    const token = MPAuth.getToken();
+    const patientId = MPAuth.getUser()?.userId;
+
+    if (!token || !patientId || patientId === "undefined") {
+        list.textContent = "Please log in again.";
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/prescriptions/patient/${patientId}`,
+            {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        if (!response.ok) {
+            list.textContent =
+                `Could not load prescriptions. Status: ${response.status}`;
+            return;
+        }
+
+        const data = await response.json();
+        const prescriptions = Array.isArray(data)
+            ? data
+            : data.prescriptions;
+
+        list.innerHTML = "";
+
+        if (!Array.isArray(prescriptions) || prescriptions.length === 0) {
+            list.textContent = "No prescriptions available right now.";
+            return;
+        }
+
+        prescriptions.forEach((prescription, index) => {
+            const card = document.createElement("div");
+            card.className = "dashboard-card";
+
+            const heading = document.createElement("h3");
+            heading.textContent = `Prescription ${index + 1}`;
+            card.appendChild(heading);
+
+            Object.entries(prescription).forEach(([key, value]) => {
+                if (value === null || typeof value === "object") return;
+
+                const row = document.createElement("p");
+                row.textContent =
+                    `${key.replace(/([A-Z])/g, " $1")}: ${value}`;
+                card.appendChild(row);
+            });
+
+            list.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("Prescription loading error:", error);
+        list.textContent =
+            "Unable to connect to the server. Please try again.";
+    }
+}
+
+loadPrescriptions();
+</script>
+
+<script src="../js/portal.js?v=20261009-final"></script>
+<script src="../../assets/toast.js"></script>
+</body>
+</html>

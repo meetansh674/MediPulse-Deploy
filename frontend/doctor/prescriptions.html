@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse - Prescriptions</title>
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+<body data-page="prescriptions">
+    <div id="appShell"></div>
+    <main class="page-content">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">Doctor / Medical</p>
+                <h1>Prescriptions</h1>
+                <p class="muted">Create prescriptions for authorized patients and review existing prescriptions.</p>
+            </div>
+            <div><button class="secondary-button" id="refreshPage">Refresh</button></div>
+        </div>
+        <div id="pageMessage" class="page-message"></div>
+
+<section class="panel">
+    <div class="form-row">
+        <div class="field"><label for="prescriptionPatient">Authorized Patient</label><select id="prescriptionPatient" class="select-input"></select></div>
+        <button class="secondary-button align-end" id="loadPrescriptions">Load Prescriptions</button>
+    </div>
+</section>
+
+<section class="content-grid two-columns">
+    <article class="panel">
+        <div class="panel-header"><div><h2>New Prescription</h2></div></div>
+        <form id="prescriptionForm" class="form-grid">
+            <div class="field full"><label for="medication">Medication</label><input id="medication" required></div>
+            <div class="field"><label for="dosage">Dosage</label><input id="dosage" placeholder="1 tablet" required></div>
+            <div class="field"><label for="frequency">Frequency</label><input id="frequency" placeholder="Twice daily" required></div>
+            <div class="field"><label for="duration">Duration</label><input id="duration" placeholder="5 days" required></div>
+            <div class="field full"><label for="instructions">Instructions</label><textarea id="instructions" rows="3"></textarea></div>
+            <button class="primary-button" type="submit">Create Prescription</button>
+        </form>
+    </article>
+    <article class="panel">
+        <div class="panel-header"><div><h2>Prescription History</h2><p class="muted">Selected patient's prescriptions.</p></div></div>
+        <div id="prescriptionsList" class="stack-list"><div class="empty-state">Select a patient.</div></div>
+    </article>
+</section>
+    </main>
+    <script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script><script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/doctor.js"></script><script src="js/portal.js"></script>
+<script src="../assets/toast.js"></script>
+</body>
+</html>

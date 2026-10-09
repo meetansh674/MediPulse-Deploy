@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Patient Records - MediPulse Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=20261007-final"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body>
+
+
+<div id="appNav"></div>
+
+
+<main class="page patient-page">
+
+
+    <div class="page-heading patient-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                ADMINISTRATION
+            </p>
+
+            <h1>
+                Patient Records
+            </h1>
+
+            <p class="muted">
+                Record of all registered patients and their treatments, active or done.
+            </p>
+
+        </div>
+
+
+        <div class="patient-count-card">
+
+            <div class="patient-count-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Patients
+                </span>
+
+                <strong id="recordCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="panel patient-search-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Find a Patient Record
+
+                </h2>
+
+                <p class="muted">
+                    Search by name, email, phone or patient ID, and filter by registration time.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="patient-search-row">
+
+            <div class="patient-search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchRecord"
+                    type="search"
+                    placeholder="Search patient records..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="clearRecordSearch"
+                type="button"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <div class="patient-search-row">
+
+            <label class="field-inline">
+
+                Registered
+
+                <select id="timeFilter">
+
+                    <option value="all">
+                        All time
+                    </option>
+
+                    <option value="month">
+                        This month
+                    </option>
+
+                    <option value="3">
+                        Last 3 months
+                    </option>
+
+                    <option value="6">
+                        Last 6 months
+                    </option>
+
+                    <option value="9">
+                        Last 9 months
+                    </option>
+
+                    <option value="12">
+                        Last 12 months
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <label class="field-inline">
+
+                Treatment
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All
+                    </option>
+
+                    <option value="active">
+                        Active treatment
+                    </option>
+
+                    <option value="done">
+                        Treatment done
+                    </option>
+
+                </select>
+
+            </label>
+
+        </div>
+
+
+        <div
+            id="recordSearchInfo"
+            class="patient-search-info"
+        >
+
+            Showing all patient records
+
+        </div>
+
+
+        <div
+            id="recordsMessage"
+            class="inline-message"
+        ></div>
+
+    </section>
+
+
+    <section class="panel patient-list-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Patient Records
+
+                </h2>
+
+                <p class="muted">
+                    Click a patient to see every treatment, when it happened and by which doctor.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="patient-grid"
+            id="recordList"
+        >
+
+            <div class="loading-card">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Loading patient records...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<div id="modalRoot"></div>
+
+
+<script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script>
+<script src="js/common.js?v=20261009-final"></script>
+
+<script src="js/patient-records.js"></script>
+
+<script src="../assets/toast.js"></script>
+</body>
+
+</html>

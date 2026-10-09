@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Audit Log - MediPulse Admin
+  </title>
+  <link href="css/style.css?v=20261007-final" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="../assets/portal-theme.css?v=20261007-final" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="appNav">
+  </div>
+  <main class="page">
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      ADMINISTRATION
+     </p>
+     <h1>
+      Audit Log
+     </h1>
+     <p class="muted">
+      Who did what, and when. Newest first.
+     </p>
+    </div>
+    <button class="btn" id="refreshAudit">
+     <i class="fa-solid fa-rotate"></i>
+     Refresh
+    </button>
+   </div>
+   <section class="panel">
+    <div class="toolbar">
+     <input class="search" id="searchAudit" placeholder="Search actor, action or target" type="search"/>
+     <select id="actionFilter">
+      <option value="">
+       All actions
+      </option>
+      <option value="TREATMENT_MARKED_DONE">
+       Treatment done
+      </option>
+      <option value="TREATMENT_REOPENED">
+       Treatment reopened
+      </option>
+      <option value="ALERT_RESOLVED">
+       Alert resolved
+      </option>
+      <option value="APPOINTMENT_UPDATED">
+       Appointment updated
+      </option>
+      <option value="APPOINTMENT_CANCELLED">
+       Appointment cancelled
+      </option>
+      <option value="DOCTOR_CREATED">
+       Doctor created
+      </option>
+      <option value="DOCTOR_UPDATED">
+       Doctor updated
+      </option>
+      <option value="USER_DELETED">
+       User deleted
+      </option>
+     </select>
+    </div>
+    <div class="table-scroll">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         When
+        </th>
+        <th>
+         Actor
+        </th>
+        <th>
+         Action
+        </th>
+        <th>
+         Target
+        </th>
+        <th>
+         Detail
+        </th>
+       </tr>
+      </thead>
+      <tbody id="auditBody">
+       <tr>
+        <td colspan="5">
+         Loading audit log...
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+  </main>
+  <script src="../shared/config.js?v=20261007-final">
+  </script>
+  <script src="../shared/auth.js?v=20261007-final">
+  </script>
+  <script src="js/common.js?v=20261009-final">
+  </script>
+  <script src="js/audit-log.js">
+  </script>
+  <script src="../assets/toast.js">
+  </script>
+ </body>
+</html>

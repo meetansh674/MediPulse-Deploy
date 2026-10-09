@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Records | MediPulse</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body class="dashboard-body">
+
+    <main class="dashboard-main">
+
+        <section class="dashboard-section">
+            <h1>Medical Records</h1>
+            <p>View your medical history and records.</p>
+
+            <div class="dashboard-card">
+                <div id="recordsMessage">
+                    Loading your medical records...
+                </div>
+
+                <div id="medicalRecordsList"></div>
+            </div>
+
+            <a href="../index.html" class="card-button">
+                Back to Dashboard
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        const recordsMessage =
+            document.getElementById("recordsMessage");
+
+        const recordsList =
+            document.getElementById("medicalRecordsList");
+
+        async function loadMedicalRecords() {
+            const token = MPAuth.getToken();
+            const patientId = MPAuth.getUser()?.userId;
+
+            if (!token || !patientId) {
+                recordsMessage.textContent =
+                    "Please log in again to view your records.";
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `${API_BASE_URL}/medical-records/patient/${patientId}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${token}`,
+                            "Content-Type": "application/json"
+                        }
+                    }
+                );
+
+                if (!response.ok) {
+                    recordsMessage.textContent =
+                        `Could not load records. Status: ${response.status}`;
+                    return;
+                }
+
+                const records = await response.json();
+
+                recordsList.innerHTML = "";
+
+                if (!Array.isArray(records) || records.length === 0) {
+                    recordsMessage.textContent =
+                        "No medical records found.";
+                    return;
+                }
+
+                recordsMessage.textContent =
+                    `Found ${records.length} medical record(s).`;
+
+                records.forEach(record => {
+                    const card = document.createElement("div");
+                    card.className = "dashboard-card";
+
+                    const title = document.createElement("h3");
+                    title.textContent =
+                        record.diagnosis || "Medical Record";
+
+                    const details = [
+                        ["Record ID", record.recordId],
+                        ["Doctor", record.doctorName],
+                        ["Treatment", record.treatment],
+                        ["Record Date", record.recordDate]
+                    ];
+
+                    card.appendChild(title);
+
+                    details.forEach(([label, value]) => {
+                        const paragraph = document.createElement("p");
+                        paragraph.textContent =
+                            `${label}: ${value ?? "Not available"}`;
+                        card.appendChild(paragraph);
+                    });
+
+                    recordsList.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Medical records error:", error);
+
+                recordsMessage.textContent =
+                    "Unable to connect to the server. Please try again.";
+            }
+        }
+
+        loadMedicalRecords();
+    </script>
+
+<script src="../js/portal.js?v=20261009-final"></script>
+<script src="../../assets/toast.js"></script>
+</body>
+</html>

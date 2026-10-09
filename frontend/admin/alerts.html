@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Alerts - MediPulse Admin</title>
+
+    <link rel="stylesheet"
+          href="css/style.css?v=20261007-final">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+
+<body>
+
+<div id="appNav"></div>
+
+
+<main class="page">
+
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                MONITORING
+            </p>
+
+            <h1>
+                Alert Center
+            </h1>
+
+            <p class="muted">
+                Review project monitoring flags for registered patients.
+                These flags are not medical diagnoses.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <section class="panel alert-selector-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    <i class="fa-solid fa-user-check"></i>
+                    Select Patient
+                </h2>
+
+                <p class="muted">
+                    Choose a patient to view their monitoring alerts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="toolbar">
+
+            <label class="field-inline">
+
+                Patient
+
+                <select id="alertPatientSelect">
+
+                    <option value="">
+                        Loading patients...
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <button
+                class="btn"
+                id="refreshAlerts">
+
+                <i class="fa-solid fa-rotate"></i>
+                Refresh
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="alertsSummary"
+            class="patient-summary">
+
+            Select a patient.
+
+        </div>
+
+    </section>
+
+
+    <section class="alert-overview-grid">
+
+        <div class="alert-overview-card">
+
+            <div class="alert-overview-icon warning">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Monitoring Status
+                </span>
+
+                <strong id="alertPageStatus">
+                    Select Patient
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="alert-overview-card">
+
+            <div class="alert-overview-icon">
+
+                <i class="fa-solid fa-bell"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Alerts Found
+                </span>
+
+                <strong id="alertPageCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="alert-overview-card">
+
+            <div class="alert-overview-icon safe">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Alert Type
+                </span>
+
+                <strong id="alertPageType">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+                    <i class="fa-solid fa-shield-heart"></i>
+                    Monitoring Alerts
+                </h2>
+
+                <p class="muted">
+                    Alerts returned by the MediPulse monitoring system.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section
+            class="alert-grid"
+            id="alertsContainer">
+
+            <div class="loading-card">
+
+                <i class="fa-solid fa-bell"></i>
+
+                Select a patient to load alerts.
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script>
+<script src="js/common.js?v=20261009-final"></script>
+
+<script src="js/alerts.js?v=20261009-final"></script>
+
+<script src="../assets/toast.js"></script>
+</body>
+
+</html>

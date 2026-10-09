@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Reports | MediPulse</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body class="dashboard-body">
+    <main class="dashboard-main">
+        <section class="dashboard-section">
+            <h1>Lab Reports</h1>
+            <p>View your available laboratory reports and test results.</p>
+
+            <div class="data-toolbar"><input id="labSearch" type="search" placeholder="Search lab reports..."></div>
+            <div class="dashboard-card">
+                <p id="reportMessage">Loading your lab reports...</p>
+                <div id="reportList"></div>
+            </div>
+
+            <a href="../index.html" class="card-button">
+                Back to Dashboard
+            </a>
+        </section>
+    </main>
+
+    <script src="../../shared/config.js?v=20261007-final"></script><script src="../../shared/auth.js?v=20261007-final"></script>
+    <script src="../js/lab-reports.js?v=20261009-final"></script>
+    <script src="../js/portal.js?v=20261009-final"></script>
+</body>
+</html>

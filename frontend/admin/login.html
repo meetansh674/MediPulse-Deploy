@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>MediPulse | Administrator Login</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../assets/medipulse-logo.png?v=admin-hardcoded-1"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: Inter, Segoe UI, Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% 12%,
+                    rgba(35, 126, 224, 0.22),
+                    transparent 36%
+                ),
+                linear-gradient(
+                    135deg,
+                    #061226 0%,
+                    #09172e 52%,
+                    #111735 100%
+                );
+            color: #172033;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        /* Back to MediPulse Hub */
+        .hub-back-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1000;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 10px 16px;
+
+            background: rgba(255, 255, 255, 0.95);
+            color: #35e0c5;
+
+            border: 1px solid #d8e4f0;
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+
+            box-shadow: 0 4px 14px rgba(30, 80, 130, 0.08);
+
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .hub-back-button:hover {
+            background: #eef6ff;
+            color: #35e0c5;
+            transform: translateY(-1px);
+        }
+
+        .login-shell {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            width: min(470px, 94vw);
+            background: #fff;
+            border: 1px solid #dbe5f0;
+            border-radius: 18px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+            padding: 32px 34px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                #35e4d1,
+                #1976d2,
+                #8b5cf6
+            );
+        }
+
+        .brand-mark {
+            text-align: center;
+            margin: 0 0 10px;
+        }
+
+        .brand-mark img {
+            display: block;
+            width: 118px;
+            height: 118px;
+            object-fit: contain;
+            margin: 0 auto 8px;
+        }
+
+        .eyebrow {
+            text-align: center;
+            color: #1976d2;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 11px;
+            font-weight: 800;
+            margin: 0 0 7px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #12365c;
+            font-size: 30px;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #12365c;
+            font-size: 19px;
+            margin: 6px 0 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.55;
+            margin: 0 0 20px;
+        }
+
+        label {
+            display: block;
+            color: #334155;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 12px 0 6px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 42px;
+            padding: 10px 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: #fff;
+            color: #172033;
+            caret-color: #1976d2;
+            outline: none;
+            font-size: 13px;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.16);
+            background: #fff;
+            color: #172033;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #172033 !important;
+            -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+            caret-color: #172033 !important;
+        }
+
+        .password-wrap {
+            position: relative;
+        }
+
+        .password-wrap input {
+            padding-right: 48px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 34px;
+            height: 32px;
+
+            border: 0;
+            background: transparent;
+            color: #64748b;
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            display: grid;
+            place-items: center;
+
+            padding: 0;
+        }
+
+        .password-toggle:hover {
+            background: #f1f5f9;
+            color: #1976d2;
+        }
+
+        .password-toggle:focus-visible {
+            outline: 2px solid #1976d2;
+            outline-offset: 1px;
+        }
+
+        .password-toggle svg {
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 42px;
+            margin-top: 14px;
+
+            border: 0;
+            border-radius: 8px;
+
+            background: #1976d2;
+            color: #fff;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 20px rgba(25, 118, 210, 0.18);
+        }
+
+        .login-button:hover {
+            background: #125ca8;
+        }
+
+        .login-button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            min-height: 18px;
+            text-align: center;
+            font-size: 12px;
+            margin: 10px 0 0;
+            color: #475569;
+        }
+
+        .form-message.error {
+            color: #dc2626;
+        }
+
+        .form-message.success {
+            color: #15803d;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 18px;
+            }
+
+            .login-card {
+                padding: 28px 22px 25px;
+            }
+
+            .brand-mark img {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .hub-back-button {
+                top: 14px;
+                left: 14px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <a href="../index.html" class="hub-back-button">
+        ← Back to MediPulse Hub
+    </a>
+
+    <main class="login-shell">
+
+        <section class="login-card" aria-labelledby="admin-title">
+
+            <div class="brand-mark">
+                <img
+                    src="../assets/medipulse-logo.png?v=admin-hardcoded-1"
+                    alt="MediPulse logo"
+                >
+            </div>
+
+            <p class="eyebrow">
+                Healthcare Management System
+            </p>
+
+            <h1 id="admin-title">
+                MediPulse
+            </h1>
+
+            <h2>
+                Administrator Portal
+            </h2>
+
+            <p class="subtitle">
+                Sign in to manage the MediPulse platform and clinical administration.
+            </p>
+
+            <form id="adminLoginForm" novalidate>
+
+                <label for="adminEmail">
+                    Email
+                </label>
+
+                <input
+                    id="adminEmail"
+                    type="email"
+                    autocomplete="username"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="adminPassword">
+                    Password
+                </label>
+
+                <div class="password-wrap">
+
+                    <input
+                        id="adminPassword"
+                        type="password"
+                        autocomplete="current-password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="adminPasswordToggle"
+                        aria-label="Show password"
+                        title="Show password"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="3"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+                        </svg>
+                    </button>
+
+                </div>
+
+                <button
+                    class="login-button"
+                    id="adminLoginButton"
+                    type="submit"
+                >
+                    Login as Admin
+                </button>
+
+            </form>
+
+            <p
+                id="adminMessage"
+                class="form-message"
+                aria-live="polite"
+            ></p>
+
+        </section>
+
+    </main>
+
+    <script>
+        (function () {
+            // Self-contained Admin Login:
+            // fixed backend URL and no shared configuration dependency.
+
+            const API_BASE_URL = "http://localhost:8080/api";
+
+            const TOKEN_KEY = "medipulseToken";
+            const USER_KEY = "medipulseUser";
+            const REFRESH_KEY = "medipulseRefreshToken";
+
+            const form = document.getElementById("adminLoginForm");
+            const email = document.getElementById("adminEmail");
+            const password = document.getElementById("adminPassword");
+            const toggle = document.getElementById("adminPasswordToggle");
+            const button = document.getElementById("adminLoginButton");
+            const message = document.getElementById("adminMessage");
+
+            toggle.addEventListener("click", function () {
+
+                const visible = password.type === "text";
+
+                password.type = visible ? "password" : "text";
+
+                toggle.setAttribute(
+                    "aria-label",
+                    visible ? "Show password" : "Hide password"
+                );
+
+                toggle.title = visible
+                    ? "Show password"
+                    : "Hide password";
+
+                toggle.innerHTML = visible
+                    ? `
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="3"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+                        </svg>
+                    `
+                    : `
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M3 3l18 18"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+
+                            <path
+                                d="M10.6 10.6a2 2 0 0 0 2.8 2.8"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            />
+
+                            <path
+                                d="M9.9 5.1A11.8 11.8 0 0 1 12 5c5.2 0 8.8 3.6 10 7-.5 1.4-1.4 2.8-2.7 4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M6.3 6.3C4.6 7.4 3.4 9.1 2 12c1.2 3.4 4.8 7 10 7 1.1 0 2.1-.2 3-.5"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                    `;
+            });
+
+            form.addEventListener("submit", async function (e) {
+
+                e.preventDefault();
+
+                const mail = email.value.trim();
+                const pass = password.value;
+
+                if (!mail || !pass) {
+
+                    message.textContent =
+                        "Please enter email and password.";
+
+                    message.className =
+                        "form-message error";
+
+                    return;
+                }
+
+                button.disabled = true;
+                button.textContent = "Signing in…";
+
+                message.textContent = "";
+                message.className = "form-message";
+
+                try {
+
+                    const response = await fetch(
+                        API_BASE_URL + "/auth/login",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                email: mail,
+                                password: pass
+                            })
+                        }
+                    );
+
+                    const contentType =
+                        response.headers.get("content-type") || "";
+
+                    const data =
+                        contentType.includes("application/json")
+                            ? await response.json()
+                            : await response.text();
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data && data.message
+                                ? data.message
+                                : (
+                                    typeof data === "string"
+                                        ? data
+                                        : "Invalid email or password"
+                                )
+                        );
+                    }
+
+                    if (
+                        !data ||
+                        !data.user ||
+                        data.user.role !== "ADMIN"
+                    ) {
+                        throw new Error(
+                            "This portal is only for administrator accounts."
+                        );
+                    }
+
+                    localStorage.setItem(
+                        TOKEN_KEY,
+                        data.token
+                    );
+
+                    localStorage.setItem(
+                        USER_KEY,
+                        JSON.stringify(data.user)
+                    );
+
+                    if (data.refreshToken) {
+
+                        localStorage.setItem(
+                            REFRESH_KEY,
+                            data.refreshToken
+                        );
+                    }
+
+                    window.location.replace(
+                        "dashboard.html?v=admin-hardcoded-1"
+                    );
+
+                } catch (err) {
+
+                    message.textContent =
+                        err.message ||
+                        "Unable to connect to the MediPulse backend.";
+
+                    message.className =
+                        "form-message error";
+
+                    button.disabled = false;
+                    button.textContent = "Login as Admin";
+                }
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Departments - MediPulse Admin
+  </title>
+  <link href="css/style.css?v=20261007-final" rel="stylesheet"/>
+  <link href="../assets/portal-theme.css?v=20261007-final" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="appNav">
+  </div>
+  <main class="page">
+   <div class="page-heading">
+    <div>
+     <p class="eyebrow">
+      ADMINISTRATION
+     </p>
+     <h1>
+      Department Administration
+     </h1>
+     <p class="muted">
+      Overview of doctors grouped by their department.
+     </p>
+    </div>
+   </div>
+   <section class="stats-grid" id="departmentStats">
+   </section>
+   <section class="panel">
+    <div class="toolbar">
+     <input class="search" id="searchDepartment" placeholder="Search departments or doctors" type="search"/>
+    </div>
+    <div class="department-grid" id="departmentList">
+     <div class="loading-card">
+      Loading department data...
+     </div>
+    </div>
+   </section>
+  </main>
+  <script src="../shared/config.js?v=20261007-final">
+  </script>
+  <script src="../shared/auth.js?v=20261007-final">
+  </script>
+  <script src="js/common.js?v=20261009-final">
+  </script>
+  <script src="js/departments.js">
+  </script>
+  <script src="../assets/toast.js">
+  </script>
+ </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediPulse | Appointments</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../../assets/medipulse-logo.png">
+<link rel="stylesheet" href="../../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body class="dashboard-body">
+
+
+    <main class="dashboard-main">
+
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="dashboard-small-text">Patient Portal</p>
+
+                <h1>
+                    Appointments
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Book and manage your healthcare appointments.
+                </p>
+            </div>
+
+            <div class="notification-icon">
+                ●
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-section">
+
+            <h2>Book an Appointment</h2>
+
+           <div class="dashboard-card appointment-card">
+
+    <form id="appointmentForm">
+
+        <div class="form-group">
+            <label for="doctor">Select Doctor</label>
+
+            <select id="doctor" name="doctor" required>
+    <option value="" selected disabled>
+        No doctors available right now
+    </option>
+</select>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="appointmentDate">Date</label>
+
+                <input
+                    type="date"
+                    id="appointmentDate"
+                    name="appointmentDate"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentTime">Time</label>
+
+                <input
+                    type="time"
+                    id="appointmentTime"
+                    name="appointmentTime"
+                    required
+                >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="reason">Reason for Visit</label>
+
+            <textarea
+                id="reason"
+                name="reason"
+                rows="4"
+                placeholder="Enter the reason for your appointment"
+            ></textarea>
+        </div>
+
+        <button type="submit" class="primary-dashboard-button">
+            Book Appointment
+        </button>
+
+        <p id="appointmentMessage" class="form-message"></p>
+
+    </form>
+
+</div>
+        </section>
+
+
+        <section class="dashboard-section">
+
+            <h2>Appointment History</h2>
+
+            <div class="dashboard-card empty-alert-card">
+
+                <div class="large-card-icon">
+                    ▣
+                </div>
+
+              <div class="dashboard-card">
+                 <div id="appointmentHistoryList">
+             <p>Loading your appointments...</p>
+                  </div>
+             </div>
+
+            </div>
+
+        </section>
+        <a href="../index.html" class="card-button">
+            ← Back to Dashboard
+        </a>
+
+    </main>
+
+
+    <script src="../../shared/config.js?v=20261007-final"></script>
+    <script src="../../shared/auth.js?v=20261007-final"></script>
+    <script src="../js/portal.js?v=20261009-final"></script>
+    <script src="../js/appointments.js"></script>
+
+<script src="../../assets/toast.js"></script>
+</body>
+</html>

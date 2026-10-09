@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Patients - MediPulse Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css?v=20261007-final"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+<link rel="stylesheet" href="../assets/portal-theme.css?v=20261007-final">
+</head>
+
+<body>
+
+<div id="appNav"></div>
+
+
+<main class="page patient-page">
+
+
+    <div class="page-heading patient-heading">
+
+        <div>
+
+            <p class="eyebrow">
+                ADMINISTRATION
+            </p>
+
+            <h1>
+                Active Patients
+            </h1>
+
+            <p class="muted">
+                Patients currently undergoing treatment. Mark treatment done to move them to Patient Records.
+            </p>
+
+        </div>
+
+
+        <div class="patient-count-card">
+
+            <div class="patient-count-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Active Patients
+                </span>
+
+                <strong id="patientCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="panel patient-search-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Find a Patient
+
+                </h2>
+
+                <p class="muted">
+                    Search by name, email, phone or patient ID.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="patient-search-row">
+
+            <div class="patient-search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchPatient"
+                    type="search"
+                    placeholder="Search patients..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="clearSearch"
+                type="button"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="patientSearchInfo"
+            class="patient-search-info"
+        >
+
+            Showing all registered patients
+
+        </div>
+
+
+        <div
+            id="patientsMessage"
+            class="inline-message"
+        ></div>
+
+    </section>
+
+
+    <section class="panel patient-list-panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Active Patients
+
+                </h2>
+
+                <p class="muted">
+                    Patients whose treatment is still in progress.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="patient-grid"
+            id="patientList"
+        >
+
+            <div class="loading-card">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                Loading patients...
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<div id="modalRoot"></div>
+
+
+<script src="../shared/config.js?v=20261007-final"></script><script src="../shared/auth.js?v=20261007-final"></script>
+<script src="js/common.js?v=20261009-final"></script>
+
+<script src="js/patients.js"></script>
+
+<script src="../assets/toast.js"></script>
+</body>
+
+</html>

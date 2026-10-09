@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse | Healthcare Management & Monitoring Hub</title>
+    <link rel="stylesheet" href="assets/medipulse-ui.css?v=20261007-final">
+    <link rel="icon" type="image/png" href="assets/medipulse-logo.png">
+    <style>
+        :root {
+            --primary: #1068EB;
+            --primary-dark: #094CB2;
+            --primary-light: #E8F1FD;
+            --accent-doctor: #0D9488;
+            --accent-admin: #6366F1;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --bg-page: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --border: #E2E8F0;
+            --success: #16A34A;
+            --danger: #DC2626;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header.hub-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-area img {
+            width: 78px;
+            height: 78px;
+        }
+
+        .brand-title h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .brand-title p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: #F1F5F9;
+            color: var(--text-muted);
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #94A3B8;
+        }
+
+        .status-dot.online {
+            background: var(--success);
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+        }
+
+        .status-dot.offline {
+            background: var(--danger);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+        }
+
+        main.hub-container {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            width: 100%;
+        }
+
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-banner h2 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #12365c;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-banner p {
+            font-size: 1.1rem;
+            color: #40556e;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .portal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: #CBD5E1;
+        }
+
+        .portal-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .portal-card.patient::before { background: var(--primary); }
+        .portal-card.doctor::before { background: var(--accent-doctor); }
+        .portal-card.admin::before { background: var(--accent-admin); }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .portal-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #0F172A;
+        }
+
+        .portal-role-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .patient .portal-role-tag { background: #DBEAFE; color: #1E40AF; }
+        .doctor .portal-role-tag { background: #CCFBF1; color: #115E59; }
+        .admin .portal-role-tag { background: #E0E7FF; color: #3730A3; }
+
+        .portal-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+        .btn-primary:hover { background-color: var(--primary-dark); }
+
+        .btn-doctor {
+            background-color: var(--accent-doctor);
+            color: #ffffff;
+        }
+        .btn-doctor:hover { background-color: #0F766E; }
+
+        .btn-admin {
+            background-color: var(--accent-admin);
+            color: #ffffff;
+        }
+        .btn-admin:hover { background-color: #4F46E5; }
+
+        .btn-secondary {
+            background-color: #F1F5F9;
+            color: #334155;
+            border-color: #E2E8F0;
+        }
+        .btn-secondary:hover { background-color: #E2E8F0; }
+
+        footer.hub-footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: #ffffff;
+        }
+
+        .hero-banner h2,.hero-banner p{opacity:1!important;text-shadow:none!important}
+        .portal-card h3{color:#12365c!important}.portal-desc{color:#40556e!important}.portal-role-tag{font-weight:800!important}
+        @media(max-width:700px){.hero-banner h2{font-size:1.9rem}.hero-banner p{font-size:1rem}}
+    </style>
+</head>
+<body>
+
+    <header class="hub-header">
+        <a href="index.html" class="brand-area">
+            <img src="assets/medipulse-logo.png" alt="MediPulse Logo">
+            <div class="brand-title">
+                <h1>MediPulse</h1>
+                <p>Healthcare Management & Monitoring Platform</p>
+            </div>
+        </a>
+
+
+    </header>
+
+    <main class="hub-container">
+        <section class="hero-banner">
+            <h2>Select Your Portal</h2>
+            <p>Access the role-specific clinical workflow, personal health history, or administrative dashboard powered by a unified Spring Boot & MySQL backend.</p>
+        </section>
+
+        <section class="portals-grid">
+
+            <div class="portal-card patient">
+                <span class="card-icon">🩺</span>
+                <h3>Patient Portal</h3>
+                <span class="portal-role-tag">Role: PATIENT</span>
+                <p class="portal-desc">
+                    Book appointments with doctors, review consultation records, view digital prescriptions and laboratory results, and submit regular health readings.
+                </p>
+                <div class="card-actions">
+                    <a href="patient/pages/login.html" class="btn btn-primary">Patient Login</a>
+                    <a href="patient/pages/register.html" class="btn btn-secondary">New Patient Register</a>
+                </div>
+            </div>
+
+
+            <div class="portal-card doctor">
+                <span class="card-icon">👨‍⚕️</span>
+                <h3>Doctor Portal</h3>
+                <span class="portal-role-tag">Role: DOCTOR</span>
+                <p class="portal-desc">
+                    Manage appointments, inspect authorized patient profiles and health histories, create clinical consultation records, issue prescriptions, and order lab tests.
+                </p>
+                <div class="card-actions">
+                    <a href="doctor/index.html" class="btn btn-doctor">Doctor Login</a>
+                </div>
+            </div>
+
+
+            <div class="portal-card admin">
+                <span class="card-icon">⚙️</span>
+                <h3>Admin Portal</h3>
+                <span class="portal-role-tag">Role: ADMIN</span>
+                <p class="portal-desc">
+                    Manage doctor accounts and clinical departments, view platform-wide patient records, monitor vitals analytics, and inspect system alerts.
+                </p>
+                <div class="card-actions">
+                    <a href="admin/login.html" class="btn btn-admin">Admin Login</a>
+                </div>
+            </div>
+        </section>
+
+
+</main>
+
+    <footer class="hub-footer">
+        <p>MediPulse — Unified Multi-Role Healthcare Management System | Spring Boot 21 + MySQL + REST API</p>
+    </footer>
+
+    <script src="shared/config.js"></script>
+</body>
+</html>

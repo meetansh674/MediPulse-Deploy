@@ -1,0 +1,598 @@
+
+
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body.auth-unified {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(30, 105, 190, 0.22),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #050d1b 0%,
+            #0a1426 52%,
+            #111735 100%
+        ) !important;
+    color: #172033 !important;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+}
+
+
+.auth-unified .auth-page,
+.auth-unified .login-container,
+.auth-unified .login-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+}
+
+
+.auth-unified .auth-card,
+.auth-unified .login-card {
+    width: min(470px, 94vw);
+    background: #ffffff !important;
+    border: 1px solid #dbe5f0 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34) !important;
+    padding: 34px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-unified .auth-card::before,
+.auth-unified .login-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #35e4d1,
+        #1976d2,
+        #8b5cf6
+    );
+}
+
+
+.auth-unified .mp-logo {
+    width: 118px !important;
+    height: 118px !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto 12px !important;
+}
+
+.auth-unified .brand,
+.auth-unified .brand-mark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 auto 10px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.auth-unified .brand > div:last-child {
+    display: block;
+    text-align: center;
+}
+
+.auth-unified .brand h1,
+.auth-unified .login-card h1 {
+    color: #12365c !important;
+    text-align: center !important;
+    font-size: 30px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+}
+
+.auth-unified .brand p,
+.auth-unified .login-card .eyebrow {
+    color: #1976d2 !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    margin: 5px 0 12px !important;
+}
+
+
+.auth-unified .auth-heading {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.auth-unified .auth-heading h2,
+.auth-unified .login-card h2 {
+    color: #12365c !important;
+    text-align: center !important;
+    font-size: 19px !important;
+    margin: 0 0 7px !important;
+}
+
+.auth-unified .auth-heading p,
+.auth-unified .login-card > .muted {
+    color: #64748b !important;
+    text-align: center !important;
+    line-height: 1.55 !important;
+    font-size: 13px !important;
+    margin: 0 0 20px !important;
+}
+
+
+.auth-unified label {
+    color: #334155 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    display: block;
+    margin: 12px 0 6px !important;
+}
+
+
+.auth-unified input {
+    width: 100%;
+    padding: 11px 13px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: #172033 !important;
+    caret-color: #1976d2 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.auth-unified input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+}
+
+.auth-unified input:focus {
+    border-color: #1976d2 !important;
+    background: #ffffff !important;
+    color: #172033 !important;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.16) !important;
+}
+
+.auth-unified input:-webkit-autofill,
+.auth-unified input:-webkit-autofill:hover,
+.auth-unified input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #172033 !important;
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+    caret-color: #172033 !important;
+}
+
+.auth-unified .form-group {
+    margin-bottom: 14px;
+}
+
+
+.auth-unified .form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0 18px;
+}
+
+.auth-unified .remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #64748b !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+}
+
+.auth-unified .remember input {
+    width: auto !important;
+    accent-color: #1976d2;
+}
+
+
+.auth-unified .forgot-password,
+.auth-unified .mp-role-switch a,
+.auth-unified .auth-footer a,
+.auth-unified .back-home {
+    color: #1976d2 !important;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.auth-unified .forgot-password {
+    font-size: 11px;
+}
+
+
+.auth-unified .primary-button,
+.auth-unified .btn.primary {
+    width: 100%;
+    padding: 11px 14px !important;
+    background: #1976d2 !important;
+    color: #ffffff !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 20px rgba(25, 118, 210, 0.18) !important;
+}
+
+.auth-unified .primary-button:hover,
+.auth-unified .btn.primary:hover {
+    background: #125ca8 !important;
+}
+
+.auth-unified button:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+}
+
+
+.auth-unified .hub-back-button {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #35e0c5 !important;
+
+    border: 1px solid #d8e4f0;
+    border-radius: 10px;
+
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 4px 14px rgba(30, 80, 130, 0.08);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.auth-unified .hub-back-button:hover {
+    background: #eef6ff;
+    color: #35e0c5 !important;
+    transform: translateY(-1px);
+}
+
+
+.auth-unified .form-message {
+    min-height: 18px;
+    color: #475569 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    margin: 10px 0 0 !important;
+}
+
+.auth-unified .form-message.error {
+    color: #dc2626 !important;
+}
+
+.auth-unified .form-message.success {
+    color: #16a34a !important;
+}
+
+
+.auth-unified .field-error {
+    display: none;
+
+    color: #dc2626 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+
+    margin: 6px 0 0 !important;
+
+    text-align: left !important;
+}
+
+.auth-unified .field-error:not(:empty) {
+    display: block;
+}
+
+.auth-unified input.invalid,
+.auth-unified select.invalid {
+    border-color: #dc2626 !important;
+    background: #fff5f5 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10) !important;
+}
+
+.auth-unified input.invalid:focus,
+.auth-unified select.invalid:focus {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14) !important;
+}
+
+
+.auth-unified .secondary-button {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #334155 !important;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.auth-unified .secondary-button:hover:not(:disabled) {
+    border-color: #1976d2;
+    color: #1976d2 !important;
+}
+
+.auth-unified .secondary-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.auth-unified .forgot-question p {
+    margin: 0;
+    padding: 10px 12px;
+
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+
+    color: #172033 !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+
+    text-align: left !important;
+}
+
+.auth-unified .password-rule {
+    display: block;
+
+    color: #64748b !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+
+    margin: 0 0 7px !important;
+
+    text-align: left !important;
+}
+
+.auth-unified .forgot-back {
+    text-align: center;
+    margin: 14px 0 0;
+    font-size: 12px;
+}
+
+.auth-unified .forgot-back a {
+    color: #1976d2 !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.auth-unified select {
+    width: 100%;
+
+    padding: 11px 13px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+
+    background: #ffffff !important;
+    color: #172033 !important;
+
+    font-size: 13px !important;
+
+    outline: none !important;
+}
+
+
+.auth-unified .auth-footer {
+    text-align: center;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #e8eef5;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.auth-unified .mp-role-switch {
+    font-size: 11px;
+    text-align: center;
+    margin: 14px 0 0;
+    color: #94a3b8;
+}
+
+
+.auth-unified .password-rule {
+    display: block;
+    color: #64748b !important;
+    font-size: 10px !important;
+    margin: -2px 0 6px !important;
+    line-height: 1.4;
+}
+
+.auth-unified .password-wrap {
+    position: relative !important;
+}
+
+.auth-unified .password-wrap input {
+    padding-right: 48px !important;
+}
+
+.auth-unified .password-toggle {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 32px;
+
+    border: 0 !important;
+    background: transparent !important;
+    color: #64748b !important;
+
+    cursor: pointer !important;
+    border-radius: 6px !important;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 !important;
+    box-shadow: none !important;
+
+    z-index: 3 !important;
+    pointer-events: auto !important;
+}
+
+.auth-unified .password-toggle:hover {
+    background: #f1f5f9 !important;
+    color: #1976d2 !important;
+}
+
+.auth-unified .password-toggle svg {
+    width: 17px;
+    height: 17px;
+    pointer-events: none !important;
+}
+
+
+.auth-unified .demo-cred-hint,
+.auth-unified .quick-fill-btn,
+.auth-unified .demo-credentials {
+    display: none !important;
+}
+
+
+.auth-unified .back-home {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    font-size: 11px;
+}
+
+
+body.auth-unified {
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(25, 118, 210, 0.20),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #061226 0%,
+            #0a1730 55%,
+            #111735 100%
+        ) !important;
+}
+
+.auth-unified .login-card,
+.auth-unified .auth-card {
+    width: min(470px, 94vw) !important;
+}
+
+
+.auth-unified .hub-back-button {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    background: rgba(255, 255, 255, 0.95);
+    color: #35e0c5 !important;
+
+    border: 1px solid #d8e4f0;
+    border-radius: 10px;
+
+    text-decoration: none !important;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 4px 14px rgba(30, 80, 130, 0.08);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.auth-unified .hub-back-button:hover {
+    background: #eef6ff;
+    color: #35e0c5 !important;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 560px) {
+
+    .auth-unified .hub-back-button {
+        top: 14px;
+        left: 14px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .auth-unified .auth-page,
+    .auth-unified .login-container,
+    .auth-unified .login-shell {
+        padding: 18px;
+    }
+
+    .auth-unified .auth-card,
+    .auth-unified .login-card {
+        padding: 28px 22px !important;
+    }
+
+    .auth-unified .mp-logo {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .auth-unified .brand h1,
+    .auth-unified .login-card h1 {
+        font-size: 27px !important;
+    }
+
+    .auth-unified .hub-back-button {
+        top: 14px;
+        left: 14px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}

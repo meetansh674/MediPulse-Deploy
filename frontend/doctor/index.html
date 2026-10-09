@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediPulse | Doctor Login</title>
+
+    <link rel="stylesheet" href="css/doctor.css?v=20261007-final">
+    <link rel="stylesheet" href="../assets/medipulse-ui.css">
+    <link rel="icon" type="image/png" href="../assets/medipulse-logo.png">
+    <link rel="stylesheet" href="../assets/auth-theme.css?v=20261007-final">
+</head>
+
+<body class="login-page auth-unified">
+
+
+    <a href="../index.html" class="hub-back-button">
+        ← Back to MediPulse Hub
+    </a>
+
+    <main class="login-container">
+
+        <section class="login-card">
+
+            <div class="brand-mark">
+                <img
+                    class="mp-logo"
+                    src="../assets/medipulse-logo.png"
+                    alt="MediPulse logo"
+                >
+            </div>
+
+            <p class="eyebrow">Healthcare Management System</p>
+
+            <h1>MediPulse</h1>
+            <h2>Doctor Portal</h2>
+
+            <p class="muted">
+                Sign in to manage appointments and authorized patient care.
+            </p>
+
+            <form id="loginForm" novalidate>
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    autocomplete="username"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <div class="password-wrap">
+
+                    <input
+                        type="password"
+                        id="password"
+                        autocomplete="current-password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="togglePassword"
+                        aria-label="Show password"
+                        title="Show password"
+                    >
+                        <span aria-hidden="true">◉</span>
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="loginButton"
+                >
+                    Login as Doctor
+                </button>
+
+                <p
+                    id="loginMessage"
+                    class="form-message"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+
+          <p class="mp-role-switch">
+              Patient? <a href="../patient/pages/login.html">Go to Patient Portal</a>
+          </p>
+
+        </section>
+
+    </main>
+
+    <script src="../shared/config.js?v=20261007-final"></script>
+    <script src="../shared/auth.js?v=20261007-final"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

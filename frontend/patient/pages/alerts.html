@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Alerts | MediPulse</title>
+
+    <link
+        href="../css/style.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="../../assets/medipulse-ui.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="../../assets/portal-theme.css?v=20261007-final"
+        rel="stylesheet"
+    >
+
+    <link
+        href="../../assets/medipulse-logo.png"
+        rel="icon"
+        type="image/png"
+    >
+</head>
+
+<body class="dashboard-body">
+
+    <main class="dashboard-main patient-with-sidebar">
+
+        <section class="dashboard-section">
+
+            <h1>Health Alerts</h1>
+
+            <p class="dashboard-subtitle">
+                Monitoring alerts generated from your health readings.
+            </p>
+
+            <div
+                class="alert-grid"
+                id="alertsList"
+            >
+                <div class="empty-alert-card">
+                    Loading alerts...
+                </div>
+            </div>
+
+            <a
+                href="../index.html"
+                class="card-button"
+            >
+                ← Back to Dashboard
+            </a>
+
+        </section>
+
+    </main>
+
+    <script src="../../shared/config.js?v=20261007-final"></script>
+    <script src="../../shared/auth.js?v=20261007-final"></script>
+    <script src="../js/portal.js?v=20261009-final"></script>
+    <script src="../../assets/toast.js"></script>
+    <script src="../js/alerts.js"></script>
+
+</body>
+</html>
