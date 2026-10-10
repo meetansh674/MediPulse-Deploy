@@ -1,6 +1,5 @@
 target/
 .mvn/wrapper/maven-wrapper.jar
-uploads/
 .git/
 .idea/
 .vscode/
